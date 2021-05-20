@@ -14,8 +14,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
 
-import module.GuiController;
-import module.ListChange;
+import controller.GuiController;
+import controller.ListChange;
 
 @SuppressWarnings("serial")
 public class GuiMakerFrame extends JFrame  {
@@ -26,8 +26,8 @@ public class GuiMakerFrame extends JFrame  {
 	JSplitPane split1, split2;
 
 	//리스트
-	String[] listStr = {"텍스트필드","버튼","라디오버튼", "테이블"};
-	JList componentList = new JList(listStr);
+	String[] listStr = {"텍스트필드","버튼","라디오버튼", "테이블", "패널"};
+	JList<String> componentList = new JList<String>(listStr);
 
 	//panel
 	JPanel centerPnl = new JPanel();

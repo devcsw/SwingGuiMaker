@@ -1,4 +1,4 @@
-package module;
+package controller;
 
 public class SourceCodeMaker {
 	private static SourceCodeMaker SourceCodeMaker = null;
@@ -13,7 +13,11 @@ public class SourceCodeMaker {
 		
 		return SourceCodeMaker;
 	}
-
+	//성우
+	//생성된 소스코드의 속성들을 배열로 받아들여서 저장
+	// 동일한 컴포넌트끼리 묶어서 ui 생성.
+	// 컴포넌트 생성자는 필드에 생성.
+	// 각 컴포넌트생성은 각 컴포넌트 이름 으로 메서드를 생성
 	
 	public static void sourceCodeMaker() {
 		 src = "public class Gui extends JFrame{\r\n" + 
@@ -35,7 +39,7 @@ public class SourceCodeMaker {
 				"	}\r\n" + 
 				"};";
 	}
-
+	
 	
 	public String getSrc() {
 		return src;

@@ -2,6 +2,8 @@ package test;
 
 import javax.swing.JFrame;
 
+//편하게 테스트해보는 코드들 사용 해보는 공간
+
 public class Gui extends JFrame{
 	
 	public Gui ( ) {
