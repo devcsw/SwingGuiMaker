@@ -4,27 +4,36 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import test.Gui;
+
 
 public class ListChange implements ListSelectionListener {
+	
+		
 	
 	//필드
 	JPanel bottomPnl;
 	JList componentList;
 	JTable tbl ;
 	JScrollPane scrollPane;
+	JTextArea srcTa;
 	
 	//생성자
-	public ListChange(JPanel bottomPnl, JList componentList) {
+	public ListChange(JPanel bottomPnl, JList componentList, JTextArea srcTa) {
 		this.componentList = componentList;
 		this.bottomPnl = bottomPnl;
+		this.srcTa = srcTa;
 	}
 	
 	@Override
