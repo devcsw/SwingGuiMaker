@@ -21,6 +21,7 @@ import controller.ListChange;
 public class GuiMakerFrame extends JFrame  {
 	//컴포넌트 선택 버튼 대신에 리스트로 구현
 	//하단에 리스트 선택시 컴포넌트 속성값 불러오기
+	//컴포넌트adpater 컴포넌트들 크기 조절 기능 구현
 
 	Container c = getContentPane();
 	JSplitPane split1, split2;
@@ -87,16 +88,17 @@ public class GuiMakerFrame extends JFrame  {
 	
 	public static void main(String[] args) {
 		new GuiMakerFrame();
-		try {
-		    UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-		} catch (Exception e) {
-		    /*
-		        ClassNotFoundException
-		        InstantiationException
-		        IllegalAccessException
-		        UnsupportedLookAndFeelException
-		     */
-		}
+		//룩앤필 ui 디자인
+//		try {
+//		    UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+//		} catch (Exception e) {
+//		    /*
+//		        ClassNotFoundException
+//		        InstantiationException
+//		        IllegalAccessException
+//		        UnsupportedLookAndFeelException
+//		     */
+//		}
 	        
 	}
 

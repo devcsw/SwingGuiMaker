@@ -39,14 +39,15 @@ public class ListChange implements ListSelectionListener {
 	
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
-		tfEntity();
+		properties();
 	}
 	
 	//텍스트필드 속성불러오기 예시
 	//추가로 각 컴포넌트 (Jbutton, JLable, Jtable ... 등) 구현
-	//예시메서드는 예시이므로 본인만의 방식으로 여러가지 컴포넌트 속성 생성기 구현(동일한 부분은 모듈화 하여 다른 클래스에서도 쓸 수 있도록 작성)
+	//예시메서드는 예시이므로 본인만의 방식으로 여러가지 컴포넌트 속성(properties) 생성기 구현
+	//동일한 부분은 모듈화 하여 다른 클래스에서도 쓸 수 있도록 작성 - sourcecodemaker에서 각 속성을 프레임에 컴포넌트 생성할때 받아올 예정.
 	// 혹은 다른 패턴이거나 알고리즘 등등 다양한거 적용 해보시면 좋을것 같아요~
-	public void tfEntity() {
+	public void properties() {
 		JTextField testTf = new JTextField();
 		Color background = testTf.getBackground();
 		Font font = testTf.getFont();
@@ -57,7 +58,6 @@ public class ListChange implements ListSelectionListener {
 		Dimension size = testTf.getSize();
 		String name = testTf.getName(); 
 		name = "";
-		
 		
 		int horizontalAlignment = testTf.getHorizontalAlignment();
 		
@@ -78,7 +78,6 @@ public class ListChange implements ListSelectionListener {
 		tbl = new JTable(contents,header);
 		scrollPane = new JScrollPane( tbl );
 		bottomPnl.add(scrollPane);
-
 		//revalidate, rpaint 로했을때 생기는 문제점이나, 다른방법이 있는지 확인
 		bottomPnl.revalidate();
 		bottomPnl.repaint();
