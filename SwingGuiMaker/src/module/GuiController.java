@@ -1,8 +1,6 @@
 package module;
 
 
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -10,29 +8,33 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 
 
 
 @SuppressWarnings("serial")
 public class GuiController  extends MouseAdapter   {
+	//소스코드
+	SourceCodeMaker scm = SourceCodeMaker.getInstance();
+
 	//프레임으로 부터 받아올 필드
 	JPanel centerPnl;
 	JPanel bottomPnl;
 	JList componentList;
+	JTextArea srcTa;
 	
 	//컴포넌트 위치 확인용 변수
 	int setX = 0;
 	int setY = 0;
 	
 	//리스너 생성자
-	public  GuiController(JPanel centerPnl, JPanel bottomPnl, JList componentList) {
+	public  GuiController(JPanel centerPnl, JPanel bottomPnl, JList componentList, JTextArea srcTa) {
 		this.centerPnl = centerPnl;
 		this.bottomPnl = bottomPnl;
 		this.componentList = componentList;
+		this.srcTa = srcTa;
 	}
 	
 
@@ -49,6 +51,7 @@ public class GuiController  extends MouseAdapter   {
 					setTf.setBounds(setX, setY, 100, 10);
 					centerPnl.add(setTf);
 					centerPnl.repaint();
+					srcTa.setText(scm.getSrc());
 				}
 		}
 			if (componentList.getSelectedIndex() == 1){

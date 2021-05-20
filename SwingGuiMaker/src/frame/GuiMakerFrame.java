@@ -10,8 +10,9 @@ import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import module.GuiController;
 import module.ListChange;
@@ -32,9 +33,11 @@ public class GuiMakerFrame extends JFrame  {
 	JPanel centerPnl = new JPanel();
 	JPanel bottomPnl = new JPanel();
 	JPanel topPnl = new JPanel();
+	JTabbedPane centerTab = new JTabbedPane();
 	
 	//Jmenu
 	JMenu menu = new JMenu();
+	JTextArea srcTa = new JTextArea();
 	
 	public GuiMakerFrame ( ) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,38 +53,34 @@ public class GuiMakerFrame extends JFrame  {
 		c.setLayout(new BorderLayout());
 		centerPnl.setLayout(null);
 		bottomPnl.setLayout(new FlowLayout());
-		//툴바생성 메서드
-//		createToolBar();
-		init();
-		//c.add(centerPnl, BorderLayout.CENTER);	
-		
-	}
-	
-	//split으로 화면 분할
-	 private void init(){
 		bottomPnl.setBackground(Color.WHITE);
 		bottomPnl.setLayout(new BorderLayout());
 		topPnl.setLayout(new BorderLayout());
 		topPnl.add(componentList);
 		centerPnl.setBackground(Color.WHITE);
-		
+		centerTab.addTab("UI", centerPnl);
+		centerTab.addTab("SourceCode",srcTa );
 		//화면분할
+		init();
+	}
+	
+	//split으로 화면 분할
+	 private void init(){
 		split1 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT); 
 		split2 = new JSplitPane(JSplitPane.VERTICAL_SPLIT);  
 		split2.setDividerLocation(500);   
         split2.setTopComponent(topPnl); //컴포넌트 왼쪽에 트리를 삽입
         split2.setBottomComponent(bottomPnl);
-        split1.setRightComponent(centerPnl); //컴포넌트 오른쪽에 텍스트 에어리어 삽입
+        split1.setRightComponent(centerTab); //컴포넌트 오른쪽에 텍스트 에어리어 삽입
         split1.setLeftComponent(split2); 
         split1.setDividerLocation(160);
-        
         c.add("Center",split1);
     }
 	
 	//리스너 관리
 	public void setListener( ) {
-		ListChange setListListener = new ListChange(bottomPnl, componentList);
-		GuiController setComListener = new GuiController(centerPnl, bottomPnl, componentList);
+		ListChange setListListener = new ListChange(bottomPnl, componentList, srcTa);
+		GuiController setComListener = new GuiController(centerPnl, bottomPnl, componentList, srcTa);
 		centerPnl.addMouseListener(setComListener);	
 		componentList.addListSelectionListener(setListListener);
 	}
