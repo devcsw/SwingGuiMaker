@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public class GuiController  extends MouseAdapter   {
-	//종현
+	//종현 
 	//GuiMakerFrame, sourceCodeMaker 랑 어떻게 연동되는지 확인 해보고 궁금한정 물어보기
 	
 	//소스코드
@@ -33,7 +33,7 @@ public class GuiController  extends MouseAdapter   {
 	int setX = 0;
 	int setY = 0;
 	
-	//리스너 생성자
+	// 생성자
 	public  GuiController(JPanel centerPnl, JPanel bottomPnl, JList<String> componentList, JTextArea srcTa) {
 		this.centerPnl = centerPnl;
 		this.bottomPnl = bottomPnl;
@@ -48,6 +48,7 @@ public class GuiController  extends MouseAdapter   {
 		//지금은 각각 컴포넌트들로 구성 되어있는데 중복되는부분 메서드화 
 		//ListChange 리스너 통해서 나오는 테이블(왼쪽하단) 속성값들을 받아와서 컴포넌트 새로 생성될때 적용 되게 만들기.
 		// 민서씨한테 어떤 방식으로 넘겨받을건지 상의해보고 물어보기
+		//
 		
 		if(centerPnl == e.getSource()) {
 			if(componentList.getSelectedIndex() == 0) {
