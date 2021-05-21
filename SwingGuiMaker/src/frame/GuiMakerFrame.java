@@ -36,6 +36,7 @@ public class GuiMakerFrame extends JFrame  {
 	JPanel topPnl = new JPanel();
 	JTabbedPane centerTab = new JTabbedPane();
 	
+	
 	//Jmenu
 	JMenu menu = new JMenu();
 	JTextArea srcTa = new JTextArea();

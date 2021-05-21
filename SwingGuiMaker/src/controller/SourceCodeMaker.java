@@ -1,8 +1,12 @@
 package controller;
 
+import javax.swing.JTextField;
+
 public class SourceCodeMaker {
 	private static SourceCodeMaker SourceCodeMaker = null;
     private static String src;
+	//소스코드 배열 1.컴포넌트(컴포넌트 이름 JButton, JTextField ...) 2.소스코드 
+	private static String textField;
 	private SourceCodeMaker(){}
 	
 	public static SourceCodeMaker getInstance() {
@@ -10,7 +14,6 @@ public class SourceCodeMaker {
 			SourceCodeMaker = new SourceCodeMaker();
 			sourceCodeMaker();
 		}
-		
 		return SourceCodeMaker;
 	}
 	//성우
@@ -21,7 +24,11 @@ public class SourceCodeMaker {
 	
 	public static void sourceCodeMaker() {
 		 src = "public class Gui extends JFrame{\r\n" + 
-				"	\r\n" + 
+				"	\r\n"
+				+ "Container c = getcontentpane();\r\n" + 
+				//필드 생성
+				
+				//기본 틀 생성
 				"	public Gui ( ) {\r\n" + 
 				"		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n" + 
 				"		setTitle(\"GuiMaker\");	\r\n" + 
@@ -30,10 +37,15 @@ public class SourceCodeMaker {
 				"		setVisible(true);\r\n" + 
 				"	}\r\n" + 
 				"	\r\n" + 
+				
+				//ui 생성
 				"	public void setUI() {\r\n" + 
-				"		\r\n" + 
-				"	}\r\n" + 
+				"		\r\n" +	 
+				"	" + textField + 
+				"	}\r\n" +
 				"	\r\n" + 
+				
+				//gui 실행
 				"	public static void main(String[] args) {\r\n" + 
 				"		new Gui();\r\n" + 
 				"	}\r\n" + 
@@ -41,6 +53,25 @@ public class SourceCodeMaker {
 	}
 	
 	
+	public String getTextField() {
+		return textField;
+	}
+
+	public void setTextField(String textField) {
+		
+		//새로운 tf 생성
+		String tf = "JTextField tf1 = new JTextField();\r\n";
+		
+		//생성된 tf의 컴포넌트 속성 설정
+		tf = tf + "	" +  textField + "\r\n";
+		//설정된 컴포넌트 add
+		tf = tf + "	" + "c.add();";
+		textField = tf;
+		
+		this.textField = textField;
+		sourceCodeMaker();
+	}
+
 	public String getSrc() {
 		return src;
 	}

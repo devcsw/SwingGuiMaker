@@ -58,6 +58,9 @@ public class GuiController  extends MouseAdapter   {
 					centerPnl.add(setTf);
 					centerPnl.repaint();
 					//소스코드 인스턴스통해서 받아오는값 
+					System.out.println("tf.setBounds(" + setX +"," + setY + ", 100, 10);");
+					System.out.println(scm.getTextField());
+					scm.setTextField("tf.setBounds(" + setX +"," + setY + ", 100, 10);");
 					srcTa.setText(scm.getSrc());
 				}
 		

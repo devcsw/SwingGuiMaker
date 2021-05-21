@@ -46,7 +46,7 @@ public class ListChange implements ListSelectionListener {
 	//추가로 각 컴포넌트 (Jbutton, JLable, Jtable ... 등) 구현
 	//예시메서드는 예시이므로 본인만의 방식으로 여러가지 컴포넌트 속성(properties) 생성기 구현
 	//동일한 부분은 모듈화 하여 다른 클래스에서도 쓸 수 있도록 작성 - sourcecodemaker에서 각 속성을 프레임에 컴포넌트 생성할때 받아올 예정.
-	// 혹은 다른 패턴이거나 알고리즘 등등 다양한거 적용 해보시면 좋을것 같아요~
+	//혹은 다른 패턴이거나 알고리즘 등등 다양한거 적용 해보시면 좋을것 같아요~
 	public void properties() {
 		JTextField testTf = new JTextField();
 		Color background = testTf.getBackground();
@@ -64,7 +64,7 @@ public class ListChange implements ListSelectionListener {
 		String header[] = {"속성이름", "속성값"};
 		
 		String contents[][] = {
-				{"배경색", background.toString()},
+				{"배경색", background.toString()}, 
 				{"폰트", font.toString()},
 				{"width", "" + getWidth},
 				{"height", "" + getHeight},
@@ -75,6 +75,12 @@ public class ListChange implements ListSelectionListener {
 				{"Visible", "true"},
 				{"HorizontalAlignment", "" + horizontalAlignment}
 		};
+		
+		//테이블 - 결과창이 나오면 이걸 노현씨한테 어떤씩으로줄지 
+		//메서드 사용법 
+		
+		//리팩토링
+		
 		tbl = new JTable(contents,header);
 		scrollPane = new JScrollPane( tbl );
 		bottomPnl.add(scrollPane);
@@ -83,4 +89,5 @@ public class ListChange implements ListSelectionListener {
 		bottomPnl.repaint();
 		
 	}
+	
 }
