@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 //편하게 테스트해보는 코드들 사용 해보는 공간
 
 public class Gui extends JFrame{
+
 	
 	public Gui ( ) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -15,7 +16,7 @@ public class Gui extends JFrame{
 	}
 	
 	public void setUI() {
-		
+
 	}
 	
 	public static void main(String[] args) {
